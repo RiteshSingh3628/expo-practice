@@ -1,7 +1,12 @@
 import { View, Text, SafeAreaView, StyleSheet, TextInput, Touchable, TouchableOpacity } from 'react-native'
 import React, { use, useState} from 'react'
+import { useNavigation } from '@react-navigation/native';
 
 export default function SignIn() {
+
+  // navigation
+  const navigation = useNavigation();
+
     const [userCred, setUserCred] = useState({
       userName: '',
       password: '',
@@ -64,7 +69,7 @@ export default function SignIn() {
             <View style={{flexDirection:'row', marginTop:20, justifyContent:"center", width:"100%"}}>
               <Text style={styles.link}>
                 Don't have an account? 
-                <TouchableOpacity onPress={()=>navigation.navigate('SignUp')}>
+                <TouchableOpacity onPress={()=>navigation.navigate('signup')}>
                 <Text style={{textDecorationLine:"underline", color:"#ff00bd"}}> SignUp</Text>
                 </TouchableOpacity>
               </Text>
