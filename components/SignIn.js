@@ -31,11 +31,12 @@ export default function SignIn() {
         <View style={styles.subCont2}>
           <Text style={{
             color: "white",
+            width:"100%",
             fontSize: 18,
             textDecorationLine: "underline",
-            alignSelf: "center",      // centers the Text within its parent View
+            // alignSelf: "center",      // centers the Text within its parent View
             textAlign: "center"       // centers the text within the Text component
-          }}>Login</Text>
+          }}>SignIn</Text>
 
           <View style={styles.formGroup}>
             <Text style={styles.label}>Username</Text>
@@ -66,13 +67,11 @@ export default function SignIn() {
             </TouchableOpacity>
 
             {/* if does not have an accoutn */}
-            <View style={{flexDirection:'row', marginTop:20, justifyContent:"center", width:"100%"}}>
-              <Text style={styles.link}>
-                Don't have an account? 
-                <TouchableOpacity onPress={()=>navigation.navigate('signup')}>
-                <Text style={{textDecorationLine:"underline", color:"#ff00bd"}}> SignUp</Text>
-                </TouchableOpacity>
-              </Text>
+            <View style={styles.signUpRow}>
+              <Text style={styles.link}>Don't have an account? </Text>
+              <TouchableOpacity onPress={()=>navigation.push('signup')}>
+                <Text style={styles.signUpText}> SignUp</Text>
+              </TouchableOpacity>
             </View>
           </View>
         </View>
@@ -88,85 +87,111 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#23272A",
-    width: "100vw",
+    width: "100%",
   },
   subCont1: {
-    flex: 1 / 4,
+    height: 120,
     width: "100%",
+    alignItems: "center",
+    justifyContent: "flex-end",
   },
   subCont2: {
-    flex: 2 / 4,
-    // backgroundColor: "blue",
+    flex: 1,
     width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+    paddingHorizontal: 20,
   },
   subCont3: {
-    flex: 1 / 4,
+    height: 100,
     width: "100%",
-    justifyContent: "flex-end",
-    alignItems: "center"
+    justifyContent: "flex-start",
+    alignItems: "center",
   },
   semiCircle: {
-    width: "70%",
-    height: "80%",
+    width: "100%",
+    height: 100,
     backgroundColor: "#461e68",
-    borderBottomLeftRadius: 100,
-    borderBottomRightRadius: 100,
+    borderBottomLeftRadius: 50,
+    borderBottomRightRadius: 50,
   },
   semiCircle2: {
-    
-    width: "30%",
-    height: "70%",
+    width: "40%",
+    height: 60,
     backgroundColor: "#461e68",
-    borderTopLeftRadius: 40,
-    borderTopRightRadius: 40,
-    alignSelf:"flex-end"
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+    alignSelf: "flex-end",
   },
   formGroup: {
-    alignItems: "flex-start",
-    marginTop: 20,
-    width: "80%",
-    alignSelf: "center",
+    width: "100%",
+    backgroundColor: "#2c2f33",
+    borderRadius: 20,
+    padding: 24,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 8,
+    elevation: 5,
   },
   label: {
     color: "#af8fc9",
-    marginBottom: 4,
-    marginTop: 12,
+    marginBottom: 8,
     marginLeft: 4,
-    fontSize: 16,
+    fontSize: 14,
+    fontWeight: "500",
   },
   input: {
     width: "100%",
-    borderRadius: 20,
-    padding: 10,
+    height: 50,
+    borderRadius: 12,
+    paddingHorizontal: 16,
     color: "#fff",
     backgroundColor: "#3e4751",
     fontSize: 16,
+    marginBottom: 16,
+  },
+  button: {
+    width: "100%",
+    height: 50,
+    backgroundColor: "#461e68",
+    borderRadius: 12,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 8,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  error: {
+    color: "#ff4d4f",
+    textAlign: "center",
+    fontStyle: "italic",
+    marginTop: 4,
     marginBottom: 8,
+    fontSize: 13,
   },
-  button:{
-    width:"80%",
-    backgroundColor:"#461e68",
-    color:"white",
-    fontSize:"16px",
-    padding:"10px",
-    borderRadius:"20px",
-    alignSelf:"center",
-    textAlign:"center",
-    marginTop:"10px"
-    
-
+  signUpRow: {
+    flexDirection: "row",
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 20,
+    flexWrap: "wrap",
+    gap: 4,
   },
-  error:{
-    color:"red",
-    textAlign:"center",
-    fontStyle:"italic",
-    display:"contents"
-
+  link: {
+    color: "white",
+    fontSize: 14,
+    textAlign: "center",
   },
-  link:{
-    color:"white",
-   
-    width:"100%",
-
-  }
+  signUpText: {
+    textDecorationLine: "underline",
+    color: "#ff00bd",
+    fontSize: 14,
+    fontWeight: "500",
+    textAlign: "center",
+  },
 })
