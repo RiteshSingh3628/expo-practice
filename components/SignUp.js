@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
   },
   subCont2: {
     flex: 1,
-    width: "100%",
+    width: "40%",
     justifyContent: "center",
     alignItems: "center",
     paddingHorizontal: 20,

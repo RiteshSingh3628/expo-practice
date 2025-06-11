@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   semiCircle: {
-    width: "100%",
+    width: "40%",
     height: 100,
     backgroundColor: "#461e68",
     borderBottomLeftRadius: 50,
